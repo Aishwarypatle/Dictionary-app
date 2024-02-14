@@ -16,12 +16,6 @@
   display: grid;
   margin-top:6rem;
 }
-.layout {
-  height: 50vh;
-  width: 50vw;
-  display: grid;
-  margin-top:6rem;
-}
 @media only screen and (max-width: 767px) {
   .layout {
     height: 80vh;
