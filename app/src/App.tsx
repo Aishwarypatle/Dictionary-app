@@ -1,10 +1,14 @@
 import React from 'react'
+import Layout from './components/Layout'
+
 
 const App = () => {
   return (
-    <div>
-        <h1>Hello</h1>
-    </div>
+    <>
+      <div className='container '>
+        <Layout />
+      </div>
+    </>
   )
 }
 
