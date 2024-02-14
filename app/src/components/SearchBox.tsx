@@ -1,15 +1,12 @@
 import React, { ChangeEvent, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { updateData } from "../Redux/slice";
+import { useDispatch } from "react-redux";
+import { updateData, updateMeaning, updatePhonetics, updateSpeech } from "../Redux/slice";
 import { RootState } from "@reduxjs/toolkit/query";
 import axios from "axios";
 
-const SearchBox = () => {
-  const { meaning } = useSelector((state: RootState) => state.meaning);
-  
-  
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const dispatch = useDispatch();
+const SearchBox = () => {  
+  const [searchTerm, setSearchTerm] = useState<string>("front");
+  const dispatch = useDispatch()
   let response: any;
 
   const handleSubmit = async () => {
@@ -18,11 +15,12 @@ const SearchBox = () => {
         response = await axios.get(
           `https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`
         );
-        dispatch(updateData(response.data[0].meanings));
+        // console.log("submit -", response);
+        dispatch(updateMeaning(response.data[0].meanings));
+        dispatch(updatePhonetics(response.data[0].phonetics[0].audio));
       } catch {
         alert("Error");
       }
-      console.log("submit -", response);
     }
   };
 
