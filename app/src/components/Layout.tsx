@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react'
 import SearchBox from './SearchBox'
 import { useSelector } from 'react-redux'
 import { RootState } from '@reduxjs/toolkit/query'
 import Meaning from './Meaning'
+
+type MyDefinitions = any;
+type MyTagTypes = any;
+type MyReducerPath = any;
+
 const Layout = () => {
-  const { meaning } = useSelector((state : RootState) => state.meaning)
+  const { meaning } : any= useSelector((state : RootState<MyDefinitions, MyTagTypes, MyReducerPath>) => state.meaning)
 
   return (
     <>

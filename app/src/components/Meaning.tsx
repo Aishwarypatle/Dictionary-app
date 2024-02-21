@@ -1,11 +1,14 @@
 import { RootState } from '@reduxjs/toolkit/query'
-import React from 'react'
 import { useSelector } from 'react-redux'
 import { AiOutlineSound } from "react-icons/ai";
 
+type MyDefinitions = any;
+type MyTagTypes = any;
+type MyReducerPath = any;
+
 const Meaning = () => {
 
-  const { meaning  , phonetics} = useSelector((state : RootState) => state.meaning)
+  const { meaning  , phonetics} : any = useSelector((state : RootState<MyDefinitions, MyTagTypes, MyReducerPath>) => state.meaning)
   const audio = new Audio(phonetics);
 
   const playSound = () =>{
@@ -20,7 +23,7 @@ const Meaning = () => {
     <>
       <div className='px-6 grid'>
           {
-            meaning.map((item , index) : any => {
+            meaning.map((item :any , index : number) => {
               return(
                 <div key={index} className='grid place p-2 my-4 shadow-xl rounded-lg'>
                     <div className='flex justify-between items-center capitalize px-2'>

@@ -1,7 +1,6 @@
-import React, { ChangeEvent, useState } from "react";
+import  { ChangeEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateData, updateMeaning, updatePhonetics, updateSpeech } from "../Redux/slice";
-import { RootState } from "@reduxjs/toolkit/query";
+import { updateMeaning, updatePhonetics } from "../Redux/slice";
 import axios from "axios";
 
 const SearchBox = () => {  
